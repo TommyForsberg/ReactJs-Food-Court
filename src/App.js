@@ -8,7 +8,7 @@ class App extends Component {
     super();
     this.updateCart = this.updateCart.bind(this);
   this.state = {
-dishes:[],
+    cart: [],
 menu:{},
 sum: 0
   };
@@ -79,14 +79,15 @@ this.setState({
   }
   updateCart(cost) {  
     let newSum = this.state.sum + cost;
-
+    let myCart = this.state.cart;
+    myCart.push()
     this.setState({sum: newSum});
     console.log('NY SUMMA '+newSum);
   }
   render() {
     return (    
       <div className="App container">
-        <Header updateCart={this.updateCart} sum = {this.state.sum} />       
+        <Header sum = {this.state.sum} />       
        <MainContent menu={this.state.menu} updateCart={this.updateCart} />        
 <br/>
       </div>

@@ -10,7 +10,6 @@ class Header extends Component {
         <div className='col-sm'> <h3>{title}</h3></div>
         <div className='col-sm'></div>
         <div  className='col-sm'><span style= {{float: 'right'}} >Go to cart<br/><span>Sum: {this.props.sum}</span></span></div>             
-      <button onClick={() => this.props.updateCart(16)}></button>
       </div>
       
      );
