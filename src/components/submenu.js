@@ -17,7 +17,7 @@ class Submenu extends Component {
       
        {dishesItem}
       
-      <Footer/>
+      <Footer showMainMenu={this.props.showMainMenu}/>
       </div>
      );
   }

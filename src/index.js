@@ -4,13 +4,13 @@ import { BrowserRouter } from 'react-router-dom';
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.css';
 // Import App has to happen after bootstrap is imported.
-import Navigation from './components/navigation.js'
+import Header from './components/header';
 
 ReactDOM.render(
     <BrowserRouter>
-    <div>
-        <Navigation/>
-    </div>
+  
+        <Header/>
+    
 </BrowserRouter>,
     document.getElementById('root'));
 

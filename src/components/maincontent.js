@@ -5,13 +5,11 @@ import './maincontent.css';
 class MainContent extends Component{
     constructor(){
         super();
-
-        
+       this.showMainMenu = this.showMainMenu.bind(this);
       this.state = {
           showMainmenu: true,
           submenuCategory: null     
       };
-     // this.showSubMenu = this.showSubMenu.bind(this);
       }
      
       showSubMenu(category) {
@@ -19,10 +17,12 @@ class MainContent extends Component{
         this.setState({showMainmenu: false,submenuCategory: category});
        // this.state.showMainmenu = false;       
     }
-
+    showMainMenu() {
+        this.setState({showMainmenu: true});    
+    }
+   
   render() {
     let menu = this.props.menu;
-     // let showMainmenu = this.props.showMainmenu;
     const categories = ['Meat','Vegetarian','Vegan'];
     if(this.state.showMainmenu==true){
     return(              
@@ -33,7 +33,7 @@ class MainContent extends Component{
     else {
         let submenuCategory = this.state.submenuCategory;            
         return <div className="row">
-        <Submenu dishes = {menu[submenuCategory]} updateCart={this.props.updateCart}/>
+        <Submenu dishes = {menu[submenuCategory]} updateCart={this.props.updateCart} showMainMenu={this.showMainMenu} />
         </div>
     }  
 }

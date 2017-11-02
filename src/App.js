@@ -7,11 +7,11 @@ import './App.css';
 class App extends Component {
   constructor(){
     super();
-    this.updateCart = this.updateCart.bind(this);
+    
   this.state = {
     cart: [],
 menu:{},
-sum: 0
+
   };
   }
   componentWillMount(){
@@ -78,19 +78,12 @@ this.setState({
   }
 })
   }
-  updateCart(dish) {  
-    let newSum = this.state.sum + dish.price;
-    let myCart = this.state.cart;
-    myCart.push(dish)
-    this.setState({sum: newSum});
-    console.log('My cart' + myCart[0].price);
-  }
+ 
   render() {
     return (    
-      <div className="App cover-container">
-        
-        <Header sum = {this.state.sum} />       
-       <MainContent menu={this.state.menu} updateCart={this.updateCart} />        
+      <div className="App cover-container">      
+        {/* <Header sum = {this.props.sum} />        */}
+       <MainContent menu={this.state.menu} updateCart={this.props.updateCart}  />        
 <br/>
       </div>
      );
