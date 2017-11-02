@@ -3,6 +3,7 @@ import Header from './components/header';
 import MainContent from './components/maincontent';
 import './App.css';
 
+
 class App extends Component {
   constructor(){
     super();
@@ -77,16 +78,17 @@ this.setState({
   }
 })
   }
-  updateCart(cost) {  
-    let newSum = this.state.sum + cost;
+  updateCart(dish) {  
+    let newSum = this.state.sum + dish.price;
     let myCart = this.state.cart;
-    myCart.push()
+    myCart.push(dish)
     this.setState({sum: newSum});
-    console.log('NY SUMMA '+newSum);
+    console.log('My cart' + myCart[0].price);
   }
   render() {
     return (    
-      <div className="App container">
+      <div className="App cover-container">
+        
         <Header sum = {this.state.sum} />       
        <MainContent menu={this.state.menu} updateCart={this.updateCart} />        
 <br/>
