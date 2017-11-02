@@ -13,20 +13,21 @@ class Header extends Component {
     this.toggle = this.toggle.bind(this);
     this.state = {
       isOpen: false,
-      sum: 0
+      sum: 0,
+      cart: [],
     };
   }
   toggle() {
     this.setState({
-      isOpen: !this.state.isOpen
+      isOpen: !this.state.isOpen,
     });
   }
   updateCart(dish) {  
     let newSum = this.state.sum + dish.price;
-  //  let myCart = this.state.cart;
-   // myCart.push(dish)
+   let myCart = this.state.cart;
+    myCart.push(dish)
     this.setState({sum: newSum});
-    //console.log('My cart' + myCart[0].price);
+    console.log('My cart' + myCart);
   }
   render() {
     const title = "Tommys Food Court";
@@ -38,7 +39,7 @@ class Header extends Component {
           
           <Nav className="ml-auto">
             <NavItem >
-             <h5>Sum: {this.state.sum} <span className="badge badge-warning">0</span></h5>  
+             <h5>Sum: {this.state.sum} <span className="badge badge-warning">{this.state.cart.length}</span></h5>  
             </NavItem>
             <NavItem>
               <NavLink><Link to='/cart'>Go to cart</Link></NavLink>
@@ -48,7 +49,8 @@ class Header extends Component {
       </Navbar>
       <Route  exact path='/' render={(props) => <App{...props}  updateCart={this.updateCart}  />
     }            />
-        <Route path='/cart' component={Cart}/>
+        <Route path='/cart' render={(props) => <Cart{...props} cart={this.state.cart}/>
+        } />
     </div>
      
       

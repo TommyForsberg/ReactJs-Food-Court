@@ -13,7 +13,7 @@ class Submenu extends Component {
       );
     })
     return (
-     <div className="col-sm-6 submenu">
+     <div className="col-sm-12 submenu">
       
        {dishesItem}
       
