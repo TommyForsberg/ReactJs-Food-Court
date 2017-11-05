@@ -23,13 +23,29 @@ class MainContent extends Component{
    
   render() {
     let menu = this.props.menu;
-    const categories = ['Meat','Vegetarian','Vegan'];
+    const categories = [
+        {
+            title: 'Meat', image:'meat.jpg'
+        },
+        {
+            title: 'Vegetarian', image:'vegetarian.jpg'
+        },
+        {
+            title: 'Vegan', image:'vegan.jpg'
+        },
+        ];
     if(this.state.showMainmenu===true){
     return(              
             <div className="row">               
             {categories.map(category => 
             
-            <div value = {category} onClick={() => {this.showSubMenu(category)}} className='col-sm text-center main-category '> {category} </div>)}      
+            <div value = {category.title} 
+            onClick={() => {this.showSubMenu(category.title)}} className='card col-sm text-center main-category'>  
+            <img className="card-img-top" src={require('./img/'+ category.image)}  alt="Card image cap"/>
+            <div className="card-block"><p class="card-text">{category.title}</p>
+  </div>
+            </div>
+        )}      
         </div>         
     )} 
     else {
