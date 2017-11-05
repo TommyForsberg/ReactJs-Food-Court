@@ -6,11 +6,12 @@ class CartItem extends Component{
      
     return(    
         <div className="card" style={{width: 10 +'rem'}} >
-  <img className="card-img-top" src={require('./img/hamburger.jpg')} alt="Card image cap"/>
+  <img className="card-img-top" src={require('./img/'+ this.props.cartitem.imagesrc)} alt="Card cap"/>
   <div className="card-body">
-    <h4 className="card-title">Card title</h4>
-    <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <h4 className="card-title">{this.props.cartitem.name}</h4>
+    <h6 class="card-subtitle mb-2 text-muted">{this.props.cartitem.category}</h6>
+    <p className="card-text">{this.props.cartitem.price} SEK</p>
+    <button class="btn btn-danger" onClick={() => this.props.deleteFromCart(this.props.keyIndex)}>Delete</button>
   </div>
 </div>       
     ) 

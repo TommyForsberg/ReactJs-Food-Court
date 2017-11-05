@@ -7,8 +7,10 @@ class Cart extends Component {
   render() {
     
      let cartItem= this.props.cart.map((item, i)=> {
+     
        return (       
-         <CartItem cartitem = {item} key={i}/>
+         <CartItem keyIndex={i} cartitem = {item}  deleteFromCart={this.props.deleteFromCart}/>
+         
        );
      })
      return (

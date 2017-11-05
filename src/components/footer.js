@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
-import './projects.css';
 
 class Footer extends Component {
   
   render() {
     const title = "<-- Go back";
     return (    
-      <div className="row">
-        <div onClick={() => this.props.showMainMenu()}className='col-sm'> <h3>{title}</h3></div>          
+      <div className="row text-center col-12 mx-auto">
+        <button onClick={() => this.props.showMainMenu()} className='btn btn-primary btn-lg'> <h3>{title}</h3></button>          
       </div>
      );
   }

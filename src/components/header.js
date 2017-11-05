@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './projects.css';
 import {  Navbar, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
-import { BrowserRouter, Route, Link } from 'react-router-dom';
+import {  Route, Link } from 'react-router-dom';
 import App from './../App';
 import Cart from './cart';
 
@@ -10,6 +10,7 @@ class Header extends Component {
   constructor(props) {
     super(props);
     this.updateCart = this.updateCart.bind(this);
+    this.deleteFromCart = this.deleteFromCart.bind(this);
     this.toggle = this.toggle.bind(this);
     this.state = {
       isOpen: false,
@@ -27,14 +28,21 @@ class Header extends Component {
    let myCart = this.state.cart;
     myCart.push(dish)
     this.setState({sum: newSum});
-    console.log('My cart' + myCart);
+  }
+
+  deleteFromCart(selectedIndex){
+    let array = this.state.cart;
+    let newSum = this.state.sum - array[selectedIndex].price;
+    //this.state.sum -= array[selectedIndex].price;
+   array.splice(selectedIndex, 1);
+    this.setState({cart: array, sum: newSum});
   }
   render() {
     const title = "Tommys Food Court";
     return (    
       <div>
       <Navbar color="faded" light expand="md">
-        <NavbarBrand><Link to='/'>Tommys Food Court</Link></NavbarBrand>    
+        <NavbarBrand><Link to='/'>{title}</Link></NavbarBrand>    
        
           
           <Nav className="ml-auto">
@@ -49,7 +57,7 @@ class Header extends Component {
       </Navbar>
       <Route  exact path='/' render={(props) => <App{...props}  updateCart={this.updateCart}  />
     }            />
-        <Route path='/cart' render={(props) => <Cart{...props} cart={this.state.cart}/>
+        <Route path='/cart' render={(props) => <Cart{...props} cart={this.state.cart} deleteFromCart={this.deleteFromCart}/>
         } />
     </div>
      

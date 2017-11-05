@@ -24,10 +24,12 @@ class MainContent extends Component{
   render() {
     let menu = this.props.menu;
     const categories = ['Meat','Vegetarian','Vegan'];
-    if(this.state.showMainmenu==true){
+    if(this.state.showMainmenu===true){
     return(              
-            <div className="row">
-            {categories.map(category => <div value = {category} onClick={() => {this.showSubMenu(category)}} className='col-sm text-center main-category '> {category} </div>)}      
+            <div className="row">               
+            {categories.map(category => 
+            
+            <div value = {category} onClick={() => {this.showSubMenu(category)}} className='col-sm text-center main-category '> {category} </div>)}      
         </div>         
     )} 
     else {

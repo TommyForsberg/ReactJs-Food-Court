@@ -1,19 +1,15 @@
 import React, { Component } from 'react';
-import Header from './components/header';
 import MainContent from './components/maincontent';
 import './App.css';
 
-
 class App extends Component {
   constructor(){
-    super();
-    
-  this.state = {
-    
+    super();   
+  this.state = {   
 menu:{}
-
   };
   }
+  
   componentWillMount(){
 this.setState({
   menu:
